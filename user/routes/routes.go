@@ -14,5 +14,11 @@ func Init() *gin.Engine {
 		user.POST("/send_code", controllers.SendEmailCode)
 	}
 
+	admin := r.Group("/admin")
+	{
+		admin.PUT("/generate_rsakey", controllers.GenerateRsaKey)
+		admin.GET("/test_get_text", controllers.TestGetCiphertext)
+	}
+
 	return r
 }
